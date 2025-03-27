@@ -2,10 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="./assets/img/4geeks.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
-
+    <!-- Bootstrap5 link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <!-- Fontawesome is our recomended library for icons -->
     <link
       rel="stylesheet"
@@ -13,23 +14,114 @@
       integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
       crossorigin="anonymous"
     />
-  </head>
-  <body>
-    <!-- Write your HTML code here, you can delete everything withing the body tags -->
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./assets/img/rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
-    </div>
 
-    <!-- Do not delete this script tag, this is what connects your HTML with the Javascript code -->
-    <script type="module" src="/app.js"></script>
+    <link rel="icon" href="./assets/img/4geeks.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form validation with Javascript</title>
+  </head>
+  <body class="container-fluid d-flex justify-content-center align-items-center">
+
+
+    <div class="card ">
+        <div class="card-header bg-body-secondary fw-bold fs-1">
+            Payment form example
+        </div>
+        <div class="card-body">
+  
+            <!-- Form/start -->
+            <form class="row g-3 border-0">
+                <div class="alert alert-danger fw-medium" role="alert">
+                    Some fields are missing
+                </div>
+  
+                <div class="col-md-5 ">
+                    <label for="inputEmail4" class="form-label">Card #</label>
+                    <input type="number" class="form-control" id="inputEmail4" placeholder="xxxx-xxxx-xxxx-xxxx">
+                </div>
+                <div class="col-md-3">
+                    <label for="inputPassword4" class="form-label fw-medium">CVC #</label>
+                    <input maxlength="3" type="password" class="form-control" id="inputPassword4" placeholder="0000">
+                </div>
+                <div class="col-4">
+                    <label for="inputAddress" class="form-label fw-medium">Amount</label>
+                    <input type="number" class="form-control" id="inputAddress" placeholder="Amount">
+                </div>
+                <div class="col-6">
+                    <label for="inputAddress2" class="form-label fw-medium">First Name</label>
+                    <input type="text" class="form-control" id="inputAddress2">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputLastName" class="form-label fw-medium">Last Name</label>
+                    <input type="text" class="form-control" id="inputLastName">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCity" class="form-label fw-medium">City</label>
+                    <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="col-md-3">
+                    <label for="inputState" class="form-label fw-medium">State</label>
+                    <select id="inputState" class="form-select">
+                        <option selected>Pick a state</option>
+                        <option>Chihuahua</option>
+                        <option>Nuevo Leon</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="inputZip" class="form-label fw-medium">Postal Code</label>
+                    <input type="number" class="form-control" id="inputZip">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCardOptionPayment" class="form-label fw-medium">We accept:</label>
+                    <!-- <input type="text" class="form-control" id="inputCardOptionPayment"> -->
+                    <fieldset class="bg-secondary w-50 h-50 d-flex justify-content-around align-items-center rounded">
+                        <input type="radio" name="payment" id="mastercard">
+                        <label for="mastercard"><i class="fa-brands fa-cc-mastercard text-light"></i></label>
+                        <input type="radio" name="payment" id="">
+                        <i class="fa-brands fa-cc-visa text-light"></i>
+                        <input type="radio" name="payment" id="">
+                        <i class="fa-brands fa-cc-diners-club text-light"></i>
+                        <input type="radio" name="payment" id="">
+                        <i class="fa-brands fa-cc-paypal text-light"></i>
+                    </fieldset>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputMessage" class="form-label fw-medium">Message</label>
+                    <br>
+                    <!-- <input type="text" class="form-control" id="inputMessage"> -->
+                    <textarea class="w-100 form-control" cols="100" name="" id=""></textarea>
+                </div>
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-6 m-0">
+                    <p>Add any notes here</p>
+                </div>
+            </form><!-- Form/end -->
+  
+        </div>
+        <div class="card-footer text-body-secondary bg-body-secondary">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-secondary me-md-2" type="button">Cancel</button>
+                <button onclick="validateForm(event)" class="btn btn-primary" type="button">Send</button>
+            </div>
+        </div>
+    </div>
+  
+  
+  
+  
+  
+  
+  
+    <!-- Bootstrap5 scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+  
+        <!-- External scripts (javascript) -->
+         <!-- Do not delete this script tag, this is what connects your HTML with the Javascript code -->
+      <script type="module" src="/app.js"></script>
   </body>
 </html>

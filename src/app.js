@@ -5,52 +5,92 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-window.onload = function(event) {
+window.onload = function (event) {
   //write your code here
+
+  let errorInForm = false
 
   let submitButton = document.querySelector('#submit-button')
 
-  submitButton.addEventListener('click', function(event){
-    console.log(event)
+  //Click event on submit button
+  submitButton.addEventListener('click', function (event) {
+    //console.log(event)
+    // console.log(event)
+    event.preventDefault()
+    
+    if (firstNameInputElement.value === "" ) {
+      firstNameInputElement.style.backgroundColor = 'pink'
+      errorInForm = true
+    }
+    if (firstNameInputElement.value.length < 5  ) {
+      console.log(firstNameInputElement.value.length)
+      console.log("too short")
+    }
+
+
+    if (lastNameInputElement.value === "") {
+      lastNameInputElement.style.backgroundColor = 'pink'
+
+    }
+    if (cityInputElement.value === "") {
+      cityInputElement.style.backgroundColor = 'pink'
+
+    }
+    if (cardNumberInputElement.value === "") {
+      cardNumberInputElement.style.backgroundColor = 'pink'
+
+    }
+    if (stateInputElement.value === "Pick a state") {
+      stateInputElement.style.backgroundColor = 'pink'
+
+    }
+
+    if (postalCodeElement.value === "") {
+      postalCodeElement.style.backgroundColor = 'pink'
+
+    }
+
+    if (inputCvcElement.value === "") {
+      inputCvcElement.style.backgroundColor = 'pink'
+
+    }
+
+    if (inputAmountElement.value === "") {
+      inputAmountElement.style.backgroundColor = 'pink'
+
+    }
+
+    errorInForm? alertDivElemnt.className = "alert alert-danger fw-medium" : alertDivElemnt.className = "invisible"
+
   })
 
-  //Card number input
-  let cardNumberInputElement = document.querySelector("#inputAddress2")
+
+
+  //Form inputs
+  let cardNumberInputElement = document.querySelector("#inputCardNumber")
   cardNumberInputElement.value = ""
 
-  let firstNameInputElement = document.querySelector("#inputAddress2")
+  let firstNameInputElement = document.querySelector("#inputFirstName")
   firstNameInputElement.value = ""
+
+  let cityInputElement = document.querySelector('#inputCity')
+  cityInputElement.value = ""
 
   let lastNameInputElement = document.querySelector('#inputLastName')
   lastNameInputElement.value = ""
 
-  /*const inputFieldsValuesObject = {
-    firstNameInput: firstNameInputElement.value,
-    lastNameInput: lastNameInputElement.value,
-  }
-  */
+  let postalCodeElement = document.querySelector('#inputPostalCode')
+  postalCodeElement.value = ""
 
-  //TRYING TO STORE FORM VALUES IN OBJECT
-  /*const inputFieldsValuesObject = {
-    cardNumberInput: document.querySelector('#inputEmail4').value
-    firstNameInput: document.querySelector('#inputLastName').value,
-    lastNameInput: lastNameInputElement.value,
-  }
-  */
+  let inputCvcElement = document.querySelector('#inputCVC')
+  inputCvcElement.value = ""
 
-  console.log('Trying to retreive value of element',firstNameInputElement.value)
+  let inputAmountElement = document.querySelector('#inputAmount')
+  inputAmountElement.value = ""
 
-  document.validateForm = function validateForm(event){
-    console.log(event)
-    event.preventDefault()
-    if(firstNameInputElement.value === ""){
-      firstNameInputElement.style.backgroundColor = 'pink'
-      alert("first name is not correct",)
-    }else if(lastNameInputElement.value === ""){
-      lastNameInputElement.style.backgroundColor = 'pink'
-      alert("last name is not correct")
-    }else if(cardNumberInputElement.value === "" || typeof cardNumberInputElement.value === "string"){
-      alert("card number is not correct")
-    }
-  }
+  let stateInputElement = document.querySelector('#inputState')
+
+  let alertDivElemnt = document.querySelector('#alertDiv')
+  
+
 };

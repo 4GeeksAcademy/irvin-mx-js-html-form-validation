@@ -29,7 +29,6 @@ window.onload = function (event) {
     }
     //Name must have between range of 3 and 25 characters in length
     if (firstNameInputElement.value.length < 2 || firstNameInputElement.value.length > 25) {
-      console.log("length of firstname is", firstNameInputElement.value.length)
       errorInForm = true
       firstNameInputElement.style.backgroundColor = 'pink'
     } else {
@@ -105,8 +104,12 @@ window.onload = function (event) {
       errorInForm = true
     } else { inputCvcElement.style.backgroundColor = 'white' }
 
+    if (inputCvcElement.value.length == 0) {
+      inputCvcElement.style.backgroundColor = 'pink'
+      errorInForm = true
+    } else { inputCvcElement.style.backgroundColor = 'white' }
+
     if (isNaN(parseInt(inputCvcElement.value))) {
-      console.log(parseInt(inputCvcElement.value))
       inputCvcElement.style.backgroundColor = 'pink'
       errorInForm = true
     } else { inputCvcElement.style.backgroundColor = 'white' }
@@ -116,12 +119,17 @@ window.onload = function (event) {
     if (inputAmountElement.value === "") {
       inputAmountElement.style.backgroundColor = 'pink'
       errorInForm = true
-    } else { inputAmountElement.style.backgroundColor = 'white' }
+    } else {
+      inputAmountElement.style.backgroundColor = 'white'
+    }
 
-    if (inputAmountElement.value === 0 || inputAmountElement.value < 0) {
+    if (inputAmountElement.value == 0 || inputAmountElement.value < 0) {
       inputAmountElement.style.backgroundColor = 'pink'
       errorInForm = true
-    } else { inputAmountElement.style.backgroundColor = 'white' }
+    } else {
+      inputAmountElement.style.backgroundColor = 'white'
+    }
+
 
 
     //Form message validations
@@ -131,9 +139,9 @@ window.onload = function (event) {
     } else { inputMessageElement.style.backgroundColor = 'white' }
 
     if (inputMessageElement.value.length > 1000) {
-      inputAmountElement.style.backgroundColor = 'pink'
+      inputMessageElement.style.backgroundColor = 'pink'
       errorInForm = true
-    } else { inputAmountElement.style.backgroundColor = 'white' }
+    } else { inputMessageElement.style.backgroundColor = 'white' }
 
 
 
@@ -168,7 +176,7 @@ window.onload = function (event) {
   inputAmountElement.value = ""
 
   let inputMessageElement = document.querySelector('#inputMessage')
-  inputAmountElement.value = ""
+  inputMessageElement.value = ""
 
   let stateInputElement = document.querySelector('#inputState')
 
